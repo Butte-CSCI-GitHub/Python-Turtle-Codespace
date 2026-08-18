@@ -1,0 +1,29 @@
+{
+  "name": "Codespace for Pyenv and Python Turtle",
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "features": {
+    // Installs the background Xvfb/VNC stack
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "version": "latest"
+    }
+  },
+  // Runs the bash compilation script automatically after the container spins up
+  "postCreateCommand": "bash .devcontainer/setup-pyenv.sh",
+
+  "containerEnv": {
+    "PYENV_ROOT": "/home/vscode/.pyenv",
+    "PATH": "/home/vscode/.pyenv/shims:/home/vscode/.pyenv/bin:${localEnv:PATH}"
+  },
+  "remoteEnv": {
+    "PYENV_ROOT": "/home/vscode/.pyenv",
+    "PATH": "/home/vscode/.pyenv/shims:/home/vscode/.pyenv/bin:${localEnv:PATH}"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python"
+      ]
+    }
+  }
+}
